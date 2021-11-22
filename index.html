@@ -49,6 +49,14 @@
   </style>
 </head>
 
+<script src="https://cdn.trackjs.com/agent/v3/latest/t.js"></script>
+<script>
+  window.TrackJS && TrackJS.install({ 
+    token: "6e5234a161e941b29ca5477cf98eb12a"
+    // for more configuration options, see https://docs.trackjs.com
+  });
+</script>
+                        
 <body>
   <main>
     <form>
@@ -102,6 +110,129 @@
 
     // Start your code here
     // You may move this JS to another file if you wish
+
+    // console.log
+    errorBtns[0].addEventListener('click', (event) => {
+      console.log('Console Log');
+    });
+
+    // console.error
+    errorBtns[1].addEventListener('click', (event) => {
+      console.error('Console Error');
+    });
+
+    // console.count 
+    errorBtns[2].addEventListener('click', (event) => {
+      console.count('Console Count');
+    });
+
+    // console.warn
+    errorBtns[3].addEventListener('click', (event) => {
+      console.warn('Console Warn');
+    });
+
+    // console.assert 
+    errorBtns[4].addEventListener('click', (event) => {
+      const x = 10;
+      const y = 7;
+      const reason = 'x is expected to be less than y';
+      console.assert(x < y, {x, y, reason});
+    });
+
+    // console.clear 
+    errorBtns[5].addEventListener('click', (event) => {
+      console.clear();
+    });   
+
+    // console.dir
+    errorBtns[6].addEventListener('click', (event) => {
+      console.dir(document.head);
+    });
+
+    // console.dirxml 
+    errorBtns[7].addEventListener('click', (event) => {
+      console.dirxml(document);
+    });
+
+    // console.groupstart 
+    errorBtns[8].addEventListener('click', (event) => {
+      console.group('Console Group Start');
+    });
+
+    // console.groupend
+    errorBtns[9].addEventListener('click', (event) => {
+      console.groupEnd('Console Group End');
+    });    
+
+    // console.table 
+    errorBtns[10].addEventListener('click', (event) => {
+      console.table([
+        {
+          first: 'Julian',
+          last: 'Yan',
+        },
+        {
+          first: 'Emily',
+          last: 'Doe',
+          birthday: '01012021',
+        },
+        {
+          first: 'John',
+          last: 'Doe',
+        }
+      ]);
+    });
+
+    // console.starttimer
+    errorBtns[11].addEventListener('click', (event) => {
+      console.time('Timer');
+    });   
+
+    // console.endtimer
+    errorBtns[12].addEventListener('click', (event) => {
+      console.timeEnd('Timer');
+    });     
+
+    // console.trace
+    errorBtns[13].addEventListener('click', (event) => {
+      console.trace();
+    }); 
+
+    // console.globalerror
+    errorBtns[14].addEventListener('click', (event) => {
+      const globalErr = 1;
+      globalErr = 2;
+    }); 
+    
+    // try, catch, finally, throw 
+    try {
+      throw new Error('Error');
+    } catch(error){
+      console.log('Caught Error')
+    } finally {
+      console.log('Finally')
+    }
+
+  class MyError extends Error {
+    constructor(message) {
+      super(message);
+      this.name = 'Custom Error';
+    }
+  }
+  
+  // custom error
+  try {
+    throw new MyError('My Error');
+  } catch(error) {
+    console.log('Caught Custom Error')
+  }
+
+
+  // window.onerror 
+  if(window.onerror) {
+    console.log('Window error caught')
+  }
+
   </script>
 </body>
 
